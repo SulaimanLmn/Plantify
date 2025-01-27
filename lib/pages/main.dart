@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:plantify/home_page.dart';
+import 'package:plantify/pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
