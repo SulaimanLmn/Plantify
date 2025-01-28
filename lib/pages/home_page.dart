@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:plantify/widgets/plant_chip_categories.dart';
 import 'package:plantify/widgets/plant_banner.dart';
 import 'package:plantify/widgets/plant_header.dart';
 import 'package:plantify/widgets/plant_search_bar.dart';
+import 'package:plantify/widgets/product_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,6 +25,11 @@ class HomePage extends StatelessWidget {
                 height: 20,
               ),
               PlantSearchBar(),
+              SizedBox(
+                height: 5,
+              ),
+              PlantChipCategories(),
+              ProductList()
             ],
           ),
         ),
