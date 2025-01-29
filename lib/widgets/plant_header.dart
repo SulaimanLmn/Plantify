@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantify/core/app_assets.dart';
 
 class PlantHeader extends StatelessWidget {
   const PlantHeader({
@@ -9,7 +10,7 @@ class PlantHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset("assets/images/plantify_icon.png"),
+        Image.asset(AppAssets.plantifyIcon),
         SizedBox(
           width: 10,
         ),
@@ -22,13 +23,11 @@ class PlantHeader extends StatelessWidget {
         ),
         Spacer(),
         Transform.scale(
-            scale: 1.3,
-            child: Image.asset("assets/images/notification_icon.png")),
+            scale: 1.3, child: Image.asset(AppAssets.notificationIcon)),
         SizedBox(
           width: 30,
         ),
-        Transform.scale(
-            scale: 1.3, child: Image.asset("assets/images/widgets.png"))
+        Transform.scale(scale: 1.3, child: Image.asset(AppAssets.widgetIcon))
       ],
     );
   }

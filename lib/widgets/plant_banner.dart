@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantify/core/app_assets.dart';
 
 class PlantBanner extends StatelessWidget {
   const PlantBanner({
@@ -17,7 +18,7 @@ class PlantBanner extends StatelessWidget {
       width: double.infinity,
       height: 200,
       child: Image.asset(
-        "assets/images/banner.png",
+        AppAssets.banner,
         fit: BoxFit.fill,
       ),
     );

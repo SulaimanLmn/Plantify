@@ -1,9 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:plantify/core/app_assets.dart';
+import 'package:plantify/models/plant.dart';
 
-class ProductList extends StatelessWidget {
+class ProductList extends StatefulWidget {
   const ProductList({
     super.key,
   });
+
+  @override
+  State<ProductList> createState() => _ProductListState();
+}
+
+class _ProductListState extends State<ProductList> {
+  List<Plant> plants = [
+    Plant(
+        name: "Peperomia",
+        price: "400",
+        productBgUrl: AppAssets.peperomiaBg,
+        productImgUrl: AppAssets.peperomiaImg),
+    Plant(
+        name: "Watermelon",
+        price: "350",
+        productBgUrl: AppAssets.watermelonBg,
+        productImgUrl: AppAssets.watermelonImg),
+    Plant(
+        name: "Croton Petra",
+        price: "200",
+        productBgUrl: AppAssets.crotonPetraBg,
+        productImgUrl: AppAssets.crotonPetraImg),
+    Plant(
+        name: "Bird's Nest Fern",
+        price: "160",
+        productBgUrl: AppAssets.nestFernBg,
+        productImgUrl: AppAssets.nestFernImg),
+    Plant(
+        name: "Cactus",
+        price: "260",
+        productBgUrl: AppAssets.cactusBg,
+        productImgUrl: AppAssets.cactusImg),
+    Plant(
+        name: "Aloe Vera",
+        price: "210",
+        productBgUrl: AppAssets.aloeVeraBg,
+        productImgUrl: AppAssets.aloeVeraImg),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +52,7 @@ class ProductList extends StatelessWidget {
         width: double.infinity,
         child: ListView.separated(
             itemBuilder: (context, index) {
+              Plant plant = plants[index];
               return Row(
                 children: [
                   Expanded(
@@ -24,8 +65,7 @@ class ProductList extends StatelessWidget {
                               image: DecorationImage(
                                   alignment: Alignment.centerLeft,
                                   fit: BoxFit.contain,
-                                  image: AssetImage(
-                                      "assets/images/product_bg.png"))),
+                                  image: AssetImage(plant.productBgUrl))),
                           child: Column(
                             children: [
                               Row(
@@ -39,13 +79,13 @@ class ProductList extends StatelessWidget {
                                   SizedBox(
                                     width: 15,
                                   ),
-                                  Image.asset("assets/images/paw_icon.png")
+                                  Image.asset(AppAssets.pawIcon)
                                 ],
                               ),
                               Row(
                                 children: [
                                   Text(
-                                    "Peperomia",
+                                    plant.name,
                                     style: TextStyle(
                                         fontFamily: "Philosopher",
                                         fontSize: 30),
@@ -58,7 +98,7 @@ class ProductList extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    "\$400",
+                                    "\$ ${plant.price}",
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w700),
@@ -69,15 +109,14 @@ class ProductList extends StatelessWidget {
                                   IconButton(
                                       padding: EdgeInsets.all(0),
                                       onPressed: () {},
-                                      icon: Image.asset(
-                                          "assets/images/favorite_icon.png")),
+                                      icon:
+                                          Image.asset(AppAssets.favoriteIcon)),
                                   Transform.scale(
                                     scale: 0.8,
                                     child: IconButton(
                                         padding: EdgeInsets.all(0),
                                         onPressed: () {},
-                                        icon: Image.asset(
-                                            "assets/images/cart_icon.png")),
+                                        icon: Image.asset(AppAssets.cartIcon)),
                                   )
                                 ],
                               )
@@ -87,7 +126,7 @@ class ProductList extends StatelessWidget {
                         Align(
                           alignment: Alignment.topRight,
                           child: Image.asset(
-                            "assets/images/product_img.png",
+                            plant.productImgUrl,
                             width: 120,
                             height: 145,
                           ),
@@ -101,7 +140,7 @@ class ProductList extends StatelessWidget {
             separatorBuilder: (context, index) => SizedBox(
                   height: 10,
                 ),
-            itemCount: 5),
+            itemCount: plants.length),
       ),
     );
   }

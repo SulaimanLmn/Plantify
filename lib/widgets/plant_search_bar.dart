@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantify/core/app_assets.dart';
 
 class PlantSearchBar extends StatelessWidget {
   const PlantSearchBar({
@@ -9,9 +10,9 @@ class PlantSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        prefixIcon: Image.asset("assets/images/search_icon.png"),
+        prefixIcon: Image.asset(AppAssets.searchIcon),
         suffixIcon: Image.asset(
-          "assets/images/scan_icon.png",
+          AppAssets.scanIcon,
           color: Colors.black,
         ),
         border: OutlineInputBorder(
