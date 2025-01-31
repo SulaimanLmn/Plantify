@@ -73,6 +73,13 @@ flutter:
     - family: Philosopher
       fonts:
         - asset: assets\fonts\Philosopher-Bold.ttf
+          weight: 600
+        - asset: assets\fonts\Philosopher-Regular.ttf
+          weight: 300
+
+    - family: Poppins
+      fonts:
+        - asset: assets\fonts\Poppins-SemiBold.ttf
 
   #   - family: Trajan Pro
   #     fonts:

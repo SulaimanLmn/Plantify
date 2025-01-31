@@ -28,4 +28,14 @@ class AppAssets {
   static final nestFernImg = "assets/images/nest_fern.png";
   static final cactusImg = "assets/images/cactus.png";
   static final aloeVeraImg = "assets/images/aloe_vera.png";
+
+  //product detail assets
+  static final productDetailBg = "assets/images/product_detail_bg.png";
+  static final productDetailStar = "assets/images/product_star.png";
+  static final productDetailCart = "assets/images/cart_icon.png";
+  static final productDetailFavorite = "assets/images/product_favorite.png";
+
+  static final productDetailWater = "assets/images/water_icon.png";
+  static final productDetailLight = "assets/images/light_icon.png";
+  static final productDetailFertilizer = "assets/images/fertilizer_icon.png";
 }
