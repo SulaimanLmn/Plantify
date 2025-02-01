@@ -17,7 +17,12 @@ class _NavigationPageState extends State<NavigationPage> {
     Center(
       child: Text("data"),
     ),
-    ProductDetailPage(),
+    Center(
+      child: Text("data"),
+    ),
+    Center(
+      child: Text("data"),
+    ),
     Center(
       child: Text("data"),
     )

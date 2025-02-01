@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:plantify/core/app_assets.dart';
 import 'package:plantify/models/plant.dart';
+import 'package:plantify/pages/product_detail_page.dart';
+import 'package:plantify/providers/product_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProductList extends StatefulWidget {
   const ProductList({
@@ -12,41 +15,9 @@ class ProductList extends StatefulWidget {
 }
 
 class _ProductListState extends State<ProductList> {
-  List<Plant> plants = [
-    Plant(
-        name: "Peperomia",
-        price: "400",
-        productBgUrl: AppAssets.peperomiaBg,
-        productImgUrl: AppAssets.peperomiaImg),
-    Plant(
-        name: "Watermelon",
-        price: "350",
-        productBgUrl: AppAssets.watermelonBg,
-        productImgUrl: AppAssets.watermelonImg),
-    Plant(
-        name: "Croton Petra",
-        price: "200",
-        productBgUrl: AppAssets.crotonPetraBg,
-        productImgUrl: AppAssets.crotonPetraImg),
-    Plant(
-        name: "Bird's Nest Fern",
-        price: "160",
-        productBgUrl: AppAssets.nestFernBg,
-        productImgUrl: AppAssets.nestFernImg),
-    Plant(
-        name: "Cactus",
-        price: "260",
-        productBgUrl: AppAssets.cactusBg,
-        productImgUrl: AppAssets.cactusImg),
-    Plant(
-        name: "Aloe Vera",
-        price: "210",
-        productBgUrl: AppAssets.aloeVeraBg,
-        productImgUrl: AppAssets.aloeVeraImg),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<Plant> plants = context.read<ProductProvider>().plants;
     return Expanded(
       child: SizedBox(
         width: double.infinity,
@@ -115,7 +86,15 @@ class _ProductListState extends State<ProductList> {
                                     scale: 0.8,
                                     child: IconButton(
                                         padding: EdgeInsets.all(0),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (context) =>
+                                                ProductDetailPage(
+                                              plant: plant,
+                                            ),
+                                          ));
+                                        },
                                         icon: Image.asset(AppAssets.cartIcon)),
                                   )
                                 ],

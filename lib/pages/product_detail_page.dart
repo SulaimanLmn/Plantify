@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:plantify/core/app_assets.dart';
 import 'package:plantify/core/app_fonts.dart';
+import 'package:plantify/models/plant.dart';
 import 'package:plantify/widgets/plant_detail_header.dart';
 import 'package:plantify/widgets/product_overview.dart';
 import 'package:plantify/widgets/star_widget.dart';
 
 class ProductDetailPage extends StatelessWidget {
-  const ProductDetailPage({super.key});
+  final Plant plant;
+  const ProductDetailPage({super.key, required this.plant});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class ProductDetailPage extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Watermelon",
+                    plant.name,
                     style: TextStyle(
                         fontSize: 40, fontFamily: AppFonts.philosopher),
                   ),
@@ -48,7 +50,7 @@ class ProductDetailPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "\$ 350",
+                    "\$ ${plant.price}",
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                   SizedBox(
@@ -127,7 +129,7 @@ class ProductDetailPage extends StatelessWidget {
               left: 150,
               top: 120,
               child: Image.asset(
-                AppAssets.watermelonImg,
+                plant.productImgUrl,
                 scale: 2.3,
               ),
             )
