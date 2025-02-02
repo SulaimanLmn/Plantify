@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:plantify/core/app_assets.dart';
 import 'package:plantify/core/app_fonts.dart';
+import 'package:plantify/models/cart_item.dart';
 import 'package:plantify/models/plant.dart';
+import 'package:plantify/pages/navigation_page.dart';
+import 'package:plantify/providers/cart_provider.dart';
 import 'package:plantify/widgets/plant_detail_header.dart';
 import 'package:plantify/widgets/product_overview.dart';
 import 'package:plantify/widgets/star_widget.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailPage extends StatelessWidget {
   final Plant plant;
@@ -75,7 +79,17 @@ class ProductDetailPage extends StatelessWidget {
                     children: [
                       IconButton(
                           padding: EdgeInsets.all(0),
-                          onPressed: () {},
+                          onPressed: () {
+                            context
+                                .read<CartProvider>()
+                                .addToCart(CartItem(plant: plant));
+
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => NavigationPage(
+                                navIndex: 2,
+                              ),
+                            ));
+                          },
                           icon: Image.asset(
                             AppAssets.productDetailCart,
                           )),

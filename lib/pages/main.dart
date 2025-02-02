@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantify/pages/navigation_page.dart';
+import 'package:plantify/providers/cart_provider.dart';
 import 'package:plantify/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => ProductProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CartProvider(),
         )
       ],
       child: MaterialApp(

@@ -38,4 +38,11 @@ class AppAssets {
   static final productDetailWater = "assets/images/water_icon.png";
   static final productDetailLight = "assets/images/light_icon.png";
   static final productDetailFertilizer = "assets/images/fertilizer_icon.png";
+
+  //product cart assets
+  static final cartWatermelonImg = "assets/images/cart_watermelon.png";
+  static final cartIncrementIcon = "assets/images/cart_increment_icon.png";
+  static final cartDecrementIcon = "assets/images/cart_decrement_icon.png";
+  static final cartDeleteIcon = "assets/images/cart_delete_icon.png";
+  static final cartBookmarkIcon = "assets/images/cart_bookmark_icon.png";
 }
