@@ -17,6 +17,26 @@ class CartItemWidget extends StatefulWidget {
 }
 
 class _CartItemWidgetState extends State<CartItemWidget> {
+  void showConfirmationDialog(CartItem item) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("Delete"),
+              content: Text("Are you sure want to delete this item?"),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      context.read<CartProvider>().deleteItem(item);
+                      Navigator.of(context).pop();
+                    },
+                    child: Text("Yes")),
+                TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text("No"))
+              ],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     CartItem item = widget.item;
@@ -46,9 +66,10 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                     onPressed: () {
                       if (item.quantity > 1) {
                         context.read<CartProvider>().decrement(item);
+
                         return;
                       }
-                      context.read<CartProvider>().deleteItem(item);
+                      showConfirmationDialog(item);
                     },
                     icon: Image.asset(
                       AppAssets.cartDecrementIcon,
@@ -76,9 +97,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   width: 7,
                 ),
                 IconButton(
-                    onPressed: () {
-                      context.read<CartProvider>().deleteItem(item);
-                    },
+                    onPressed: () => showConfirmationDialog(item),
                     icon: Image.asset(
                       AppAssets.cartDeleteIcon,
                       scale: 0.8,
